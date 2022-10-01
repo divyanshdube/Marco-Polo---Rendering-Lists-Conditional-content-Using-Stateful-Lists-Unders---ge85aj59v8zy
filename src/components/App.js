@@ -1,22 +1,15 @@
 import React from "react";
+import { useState } from "react/cjs/react.production.min";
 import "../styles/App.css";
 
 const App = () => {
-  isToggleMarco = true;
-
-  textHandler = () => {
-    setState((state) => {
-      isToggleMarco = !state.isToggleMarco;
-    });
-  };
-
+  const [showText, setShowText] = useState(false);
   return (
     <div id="main">
-      <h1 id="marco-polo">Marco</h1>
-      <button id="marco-polo-toggler" onClick={textHandler}>
+      {showText && <h1 id="marco-polo">Marco</h1>}
+      <button id="marco-polo-toggler" onClick={() => setShowText(!showText)}>
         Polo
       </button>
-      {state.isToggleMarco ? "Polo" : "Marco"}
     </div>
   );
 };
